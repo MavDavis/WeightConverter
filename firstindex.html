@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeightConverter</title>
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <style>
         body{
             margin-top: 70px;
@@ -20,32 +20,18 @@
         }
         .card-danger{
             background: var(--red);
-            
-        }
-        .btn-blue{
-            background: var(--blue);
-        }
-        .display{
-            display: none;
         }
     </style>
 </head>
+
 <body>
     <div class="container mb-5">
         <div class="row col-md-6 offset-md-3">
             <div class="col-md-6">
                 <h1 class="display-4 text-center mb-3">Weight Converter</h1>
-                
-
                 <form>
                     <div class="form-group">
-                     <button id="weightConverter" class=" btn btn-md mb-3 btn-danger">Convert weight....(Input here)</button>
-                     <button id='ounce' class="hideMe btn btn-md mb-3 btn-danger">Convert from Ounce</button>
-                     <button id='kilogram' class="hideMe btn btn-md mb-3 btn-success">Convert from kilogram</button>
-                     <button id='gram' class="hideMe btn btn-md mb-3 btn-primary">Convert from gram</button>
-                     <button id="pounds" class="hideMe btn btn-md mb-3 btn-secondary">Convert from pounds</button>
-                     
-                        <input type="number" class="form-control form-control-md" placeholder="Enter number..." id="IbsInput">
+                        <input type="number" class="form-control form-control-lg" placeholder="Enter pounds..." id="IbsInput">
                     </div>
                 </form>
                 <div id="output">
@@ -54,12 +40,6 @@
                         <div id="gramsOutput"></div>
                         </div>
                     </div>
-                 
-                        <div class="card mb-2 card-primary">
-                            <div class="card-block"><h4>Pounds:</h4>
-                            <div id="poundsOutput"></div>
-                            </div>
-                        </div>
 
 
                     <div class="card mb-2 card-success">
@@ -74,25 +54,23 @@
                         <div id="ozOutput"></div>
                         </div>
                     </div>
-                    
-                </div>
-                <div class="btn hideMe"><a
-style="color: white;
-background: var(--blue);
-padding: 5px;
-border-radius: 5px;
-text-decoration: none;
-position: absolute;
-top: 70%;
-left: 50%;
-;"
-                    href="editedindex.html">Home</a></div>
 
+
+                </div>
             </div>
-         
         </div>
     </div>
- 
-    <script src="index.js"></script>
+
+<script>
+    document.getElementById('output').style.visibility = 'hidden'
+document.getElementById('IbsInput').addEventListener('input',function(e){
+    document.getElementById('output').style.visibility = 'visible'
+    let pounds = e.target.value;
+    document.getElementById('gramsOutput').innerHTML= pounds/0.0022046;
+    document.getElementById('kgOutput').innerHTML= pounds/2.2046;
+    document.getElementById('ozOutput').innerHTML= pounds*16;
+})
+</script>
+
 </body>
 </html>
